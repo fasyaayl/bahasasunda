@@ -1,0 +1,340 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Seeder;
+use App\Models\Question;
+
+class QuestionSeeder extends Seeder
+{
+    public function run(): void
+    {
+        $questions = [
+
+            // =====================================================
+            // EASY - 10 SOAL
+            // =====================================================
+
+            [
+                'difficulty' => 'easy',
+                'question' => 'Naon hartina kecap "imah" dina Bahasa Indonesia?',
+                'option_a' => 'Sekolah',
+                'option_b' => 'Rumah',
+                'option_c' => 'Jalan',
+                'option_d' => 'Kebun',
+                'correct_answer' => 'b',
+                'explanation' => 'Kecap "imah" dina Bahasa Indonesia hartina rumah.',
+            ],
+            [
+                'difficulty' => 'easy',
+                'question' => 'Naon hartina kecap "cai" dina Bahasa Indonesia?',
+                'option_a' => 'Air',
+                'option_b' => 'Api',
+                'option_c' => 'Tanah',
+                'option_d' => 'Angin',
+                'correct_answer' => 'a',
+                'explanation' => 'Kecap "cai" dina Bahasa Indonesia hartina air.',
+            ],
+            [
+                'difficulty' => 'easy',
+                'question' => 'Naon hartina kecap "sakola" dina Bahasa Indonesia?',
+                'option_a' => 'Pasar',
+                'option_b' => 'Kantor',
+                'option_c' => 'Sekolah',
+                'option_d' => 'Rumah',
+                'correct_answer' => 'c',
+                'explanation' => 'Kecap "sakola" dina Bahasa Indonesia hartina sekolah.',
+            ],
+            [
+                'difficulty' => 'easy',
+                'question' => 'Naon hartina kecap "buku" dina Bahasa Indonesia?',
+                'option_a' => 'Buku',
+                'option_b' => 'Pensil',
+                'option_c' => 'Meja',
+                'option_d' => 'Tas',
+                'correct_answer' => 'a',
+                'explanation' => 'Kecap "buku" dina Bahasa Sunda jeung Bahasa Indonesia sarua, nyaéta buku.',
+            ],
+            [
+                'difficulty' => 'easy',
+                'question' => 'Naon hartina kecap "tuang" dina Bahasa Indonesia?',
+                'option_a' => 'Tidur',
+                'option_b' => 'Minum',
+                'option_c' => 'Makan',
+                'option_d' => 'Berjalan',
+                'correct_answer' => 'c',
+                'explanation' => 'Kecap "tuang" hartina makan dina ragam basa Sunda lemes.',
+            ],
+            [
+                'difficulty' => 'easy',
+                'question' => 'Naon hartina kecap "sare" dina Bahasa Indonesia?',
+                'option_a' => 'Belajar',
+                'option_b' => 'Tidur',
+                'option_c' => 'Makan',
+                'option_d' => 'Duduk',
+                'correct_answer' => 'b',
+                'explanation' => 'Kecap "sare" dina Bahasa Indonesia hartina tidur.',
+            ],
+            [
+                'difficulty' => 'easy',
+                'question' => 'Naon hartina kecap "ucing" dina Bahasa Indonesia?',
+                'option_a' => 'Kucing',
+                'option_b' => 'Burung',
+                'option_c' => 'Ayam',
+                'option_d' => 'Ikan',
+                'correct_answer' => 'a',
+                'explanation' => 'Kecap "ucing" dina Bahasa Indonesia hartina kucing.',
+            ],
+            [
+                'difficulty' => 'easy',
+                'question' => 'Naon hartina kecap "lauk" dina Bahasa Indonesia?',
+                'option_a' => 'Ayam',
+                'option_b' => 'Kucing',
+                'option_c' => 'Ikan',
+                'option_d' => 'Burung',
+                'correct_answer' => 'c',
+                'explanation' => 'Kecap "lauk" dina Bahasa Indonesia hartina ikan.',
+            ],
+            [
+                'difficulty' => 'easy',
+                'question' => 'Naon hartina kecap "isuk" dina Bahasa Indonesia?',
+                'option_a' => 'Malam',
+                'option_b' => 'Sore',
+                'option_c' => 'Siang',
+                'option_d' => 'Pagi',
+                'correct_answer' => 'd',
+                'explanation' => 'Kecap "isuk" dina Bahasa Indonesia hartina pagi.',
+            ],
+            [
+                'difficulty' => 'easy',
+                'question' => 'Naon hartina kecap "hatur nuhun" dina Bahasa Indonesia?',
+                'option_a' => 'Selamat pagi',
+                'option_b' => 'Terima kasih',
+                'option_c' => 'Sampai jumpa',
+                'option_d' => 'Permisi',
+                'correct_answer' => 'b',
+                'explanation' => '"Hatur nuhun" dina Bahasa Indonesia hartina terima kasih.',
+            ],
+
+            // =====================================================
+            // MEDIUM - 10 SOAL
+            // =====================================================
+
+            [
+                'difficulty' => 'medium',
+                'question' => 'Naon hartina kalimah "Abdi bade angkat ka sakola"?',
+                'option_a' => 'Saya akan pergi ke sekolah',
+                'option_b' => 'Saya sudah pulang dari sekolah',
+                'option_c' => 'Saya sedang makan di sekolah',
+                'option_d' => 'Saya bermain di sekolah',
+                'correct_answer' => 'a',
+                'explanation' => '"Abdi bade angkat ka sakola" hartina saya akan pergi ke sekolah.',
+            ],
+            [
+                'difficulty' => 'medium',
+                'question' => 'Kecap "anjeunna" dina Bahasa Indonesia hartina naon?',
+                'option_a' => 'Saya',
+                'option_b' => 'Kamu',
+                'option_c' => 'Dia',
+                'option_d' => 'Mereka',
+                'correct_answer' => 'c',
+                'explanation' => 'Kecap "anjeunna" dipaké pikeun nyebut dia.',
+            ],
+            [
+                'difficulty' => 'medium',
+                'question' => 'Naon hartina "Wilujeng enjing"?',
+                'option_a' => 'Selamat malam',
+                'option_b' => 'Selamat pagi',
+                'option_c' => 'Selamat sore',
+                'option_d' => 'Selamat jalan',
+                'correct_answer' => 'b',
+                'explanation' => '"Wilujeng enjing" hartina selamat pagi.',
+            ],
+            [
+                'difficulty' => 'medium',
+                'question' => 'Naon hartina kecap "rerencangan"?',
+                'option_a' => 'Teman',
+                'option_b' => 'Guru',
+                'option_c' => 'Orang tua',
+                'option_d' => 'Tetangga',
+                'correct_answer' => 'a',
+                'explanation' => 'Kecap "rerencangan" hartina teman.',
+            ],
+            [
+                'difficulty' => 'medium',
+                'question' => 'Naon hartina kalimah "Punten, abdi bade naros"?',
+                'option_a' => 'Maaf, saya mau pulang',
+                'option_b' => 'Permisi, saya mau bertanya',
+                'option_c' => 'Terima kasih sudah menjawab',
+                'option_d' => 'Saya tidak tahu',
+                'correct_answer' => 'b',
+                'explanation' => '"Punten, abdi bade naros" hartina permisi, saya mau bertanya.',
+            ],
+            [
+                'difficulty' => 'medium',
+                'question' => 'Kecap "maca" dina Bahasa Indonesia hartina naon?',
+                'option_a' => 'Menulis',
+                'option_b' => 'Menggambar',
+                'option_c' => 'Membaca',
+                'option_d' => 'Berbicara',
+                'correct_answer' => 'c',
+                'explanation' => 'Kecap "maca" hartina membaca.',
+            ],
+            [
+                'difficulty' => 'medium',
+                'question' => 'Naon hartina kalimah "Ibu nuju masak di dapur"?',
+                'option_a' => 'Ibu sedang tidur di kamar',
+                'option_b' => 'Ibu sedang memasak di dapur',
+                'option_c' => 'Ibu sedang makan',
+                'option_d' => 'Ibu sedang pergi',
+                'correct_answer' => 'b',
+                'explanation' => '"Nuju" nuduhkeun kagiatan anu keur dilakukeun.',
+            ],
+            [
+                'difficulty' => 'medium',
+                'question' => 'Kecap "kamari" nuduhkeun waktu naon?',
+                'option_a' => 'Besok',
+                'option_b' => 'Sekarang',
+                'option_c' => 'Kemarin',
+                'option_d' => 'Lusa',
+                'correct_answer' => 'c',
+                'explanation' => 'Kecap "kamari" hartina kemarin.',
+            ],
+            [
+                'difficulty' => 'medium',
+                'question' => 'Naon hartina "Dupi anjeun damang?"',
+                'option_a' => 'Apakah Anda sehat?',
+                'option_b' => 'Anda mau ke mana?',
+                'option_c' => 'Siapa nama Anda?',
+                'option_d' => 'Anda tinggal di mana?',
+                'correct_answer' => 'a',
+                'explanation' => '"Dupi anjeun damang?" dipaké pikeun naroskeun kabar atawa kaséhatan.',
+            ],
+            [
+                'difficulty' => 'medium',
+                'question' => 'Naon hartina kalimah "Mangga calik heula"?',
+                'option_a' => 'Silakan makan dahulu',
+                'option_b' => 'Silakan pulang dahulu',
+                'option_c' => 'Silakan duduk dahulu',
+                'option_d' => 'Silakan masuk dahulu',
+                'correct_answer' => 'c',
+                'explanation' => '"Mangga calik heula" hartina silakan duduk dahulu.',
+            ],
+
+            // =====================================================
+            // HARD - 10 SOAL
+            // =====================================================
+
+            [
+                'difficulty' => 'hard',
+                'question' => 'Naon hartina paribasa "Cikaracak ninggang batu, laun-laun jadi legok"?',
+                'option_a' => 'Pagawean anu hésé leuwih hadé ditinggalkeun',
+                'option_b' => 'Usaha anu terus-terusan bakal ngahasilkeun hasil',
+                'option_c' => 'Urang kudu salawasna buru-buru',
+                'option_d' => 'Hirup kudu salawasna nyorangan',
+                'correct_answer' => 'b',
+                'explanation' => 'Paribasa ieu ngandung harti yén usaha anu dilakukeun terus-terusan bakal ngahasilkeun hasil.',
+            ],
+            [
+                'difficulty' => 'hard',
+                'question' => 'Naon hartina paribasa "Ka cai jadi saleuwi, ka darat jadi salebak"?',
+                'option_a' => 'Kudu hirup nyorangan',
+                'option_b' => 'Kudu pindah tempat',
+                'option_c' => 'Kudu kompak jeung sauyunan',
+                'option_d' => 'Kudu meunang dina sagala hal',
+                'correct_answer' => 'c',
+                'explanation' => 'Paribasa ieu ngandung harti hirup kudu kompak, sauyunan, jeung babarengan.',
+            ],
+            [
+                'difficulty' => 'hard',
+                'question' => 'Dina undak-usuk basa Sunda, kecap lemes tina "dahar" nyaéta?',
+                'option_a' => 'Tuang',
+                'option_b' => 'Nyatu',
+                'option_c' => 'Neda',
+                'option_d' => 'Emam',
+                'correct_answer' => 'a',
+                'explanation' => '"Tuang" mangrupa kecap lemes anu patali jeung kecap "dahar".',
+            ],
+            [
+                'difficulty' => 'hard',
+                'question' => 'Dina kalimah "Bapa nuju angkat ka Bandung", kecap "nuju" miboga fungsi pikeun nuduhkeun naon?',
+                'option_a' => 'Tempat',
+                'option_b' => 'Kagiatan anu keur lumangsung',
+                'option_c' => 'Kagiatan anu geus réngsé',
+                'option_d' => 'Jumlah barang',
+                'correct_answer' => 'b',
+                'explanation' => 'Kecap "nuju" dipaké pikeun nuduhkeun hiji kagiatan anu keur lumangsung.',
+            ],
+            [
+                'difficulty' => 'hard',
+                'question' => 'Naon maksud ungkara "ulah ngaliarkeun taleus ateul"?',
+                'option_a' => 'Ulah nyebarkeun perkara anu bisa nimbulkeun masalah',
+                'option_b' => 'Ulah melak tatangkalan',
+                'option_c' => 'Ulah indit ka kebon',
+                'option_d' => 'Ulah dahar kadaharan lada',
+                'correct_answer' => 'a',
+                'explanation' => 'Ungkara ieu mangrupa naséhat supaya henteu nyebarkeun perkara anu bisa nimbulkeun masalah.',
+            ],
+            [
+                'difficulty' => 'hard',
+                'question' => 'Kecap "anjeunna" kaasup kana jenis kecap naon?',
+                'option_a' => 'Kecap pagawéan',
+                'option_b' => 'Kecap gaganti jalma',
+                'option_c' => 'Kecap sipat',
+                'option_d' => 'Kecap bilangan',
+                'correct_answer' => 'b',
+                'explanation' => '"anjeunna" mangrupa kecap gaganti jalma katilu.',
+            ],
+            [
+                'difficulty' => 'hard',
+                'question' => 'Mana kalimah anu ngagunakeun basa Sunda lemes kalayan leuwih merenah?',
+                'option_a' => 'Aing rék dahar ayeuna.',
+                'option_b' => 'Urang rék nyatu ayeuna.',
+                'option_c' => 'Abdi badé tuang ayeuna.',
+                'option_d' => 'Maneh rék dahar ayeuna.',
+                'correct_answer' => 'c',
+                'explanation' => '"Abdi badé tuang ayeuna" ngagunakeun pilihan kecap anu leuwih lemes.',
+            ],
+            [
+                'difficulty' => 'hard',
+                'question' => 'Naon hartina kecap "anjeunna parantos sumping"?',
+                'option_a' => 'Dia belum datang',
+                'option_b' => 'Dia sedang pergi',
+                'option_c' => 'Dia sudah datang',
+                'option_d' => 'Dia akan datang',
+                'correct_answer' => 'c',
+                'explanation' => '"Parantos" hartina sudah, sedengkeun "sumping" hartina datang.',
+            ],
+            [
+                'difficulty' => 'hard',
+                'question' => 'Naon tujuan utama ngagunakeun undak-usuk basa Sunda?',
+                'option_a' => 'Ngabédakeun asal daerah',
+                'option_b' => 'Nyaluyukeun basa jeung lawan nyarita sarta kaayaan',
+                'option_c' => 'Ngajadikeun kalimah leuwih panjang',
+                'option_d' => 'Ngaganti sakabéh kecap Bahasa Indonesia',
+                'correct_answer' => 'b',
+                'explanation' => 'Undak-usuk basa dipaké pikeun nyaluyukeun ragam basa jeung saha urang nyarita sarta kaayaanana.',
+            ],
+            [
+                'difficulty' => 'hard',
+                'question' => 'Naon hartina babasan "gedé hulu"?',
+                'option_a' => 'Jalma anu bageur',
+                'option_b' => 'Jalma anu sombong',
+                'option_c' => 'Jalma anu rajin',
+                'option_d' => 'Jalma anu sabar',
+                'correct_answer' => 'b',
+                'explanation' => 'Babasan "gedé hulu" dipaké pikeun ngagambarkeun jalma anu sombong.',
+            ],
+        ];
+
+        foreach ($questions as $question) {
+            Question::updateOrCreate(
+                [
+                    'question' => $question['question'],
+                    'difficulty' => $question['difficulty'],
+                ],
+                $question
+            );
+        }
+    }
+}
