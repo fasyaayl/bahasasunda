@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Services\ActivityService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,14 +19,31 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         $credentials = $request->validate([
-            'email' => 'required|email',
+            'email'    => 'required|email',
             'password' => 'required',
         ]);
 
         if (Auth::attempt($credentials)) {
+
             $request->session()->regenerate();
 
-            return redirect('/dashboard');
+            // Catat aktivitas login hanya untuk siswa
+            if (Auth::user()->role === 'student') {
+
+                ActivityService::log(
+                    Auth::id(),
+                    'login',
+                    'Login ke sistem',
+                    $request->ip()
+                );
+
+                return redirect('/dashboard');
+            }
+
+            // Guru masuk portal admin
+            if (Auth::user()->role === 'teacher') {
+                return redirect('/admin/dashboard');
+            }
         }
 
         return back()
@@ -38,6 +56,16 @@ class LoginController extends Controller
     // Proses logout
     public function logout(Request $request)
     {
+        if (Auth::check() && Auth::user()->role === 'student') {
+
+            ActivityService::log(
+                Auth::id(),
+                'logout',
+                'Logout dari sistem',
+                $request->ip()
+            );
+        }
+
         Auth::logout();
 
         $request->session()->invalidate();

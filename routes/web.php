@@ -14,6 +14,12 @@ use App\Http\Controllers\ProfileController;
 
 use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\MaterialProgressController;
+use App\Http\Controllers\Admin\QuestionController as AdminQuestionController;
+use App\Http\Controllers\Admin\MaterialController as AdminMaterialController;
+use App\Http\Controllers\Admin\StudentController as AdminStudentController;
+use App\Http\Controllers\Admin\QuizResultController as AdminQuizResultController;
+use App\Http\Controllers\Admin\ActivityLogController;
+
 
 use App\Http\Controllers\QuizController;
 use App\Http\Controllers\QuizResultController;
@@ -32,7 +38,6 @@ use App\Models\QuizResult;
 Route::get('/', function () {
     return view('home');
 })->name('home');
-
 
 /*
 |--------------------------------------------------------------------------
@@ -453,5 +458,38 @@ Route::middleware('auth')->group(function () {
         '/quiz/{difficulty}/submit',
         [QuizResultController::class, 'submit']
     )->name('quiz.submit');
+
+});
+/*
+|--------------------------------------------------------------------------
+| PORTAL ADMIN - KELOLA SOAL QUIZ
+|--------------------------------------------------------------------------
+*/
+
+Route::middleware(['auth', 'teacher'])
+    ->prefix('admin')
+    ->name('admin.')
+    ->group(function () {
+
+        Route::get('/dashboard', function () {
+            return view('admin.dashboard');
+        })->name('dashboard');
+
+       Route::resource('questions', AdminQuestionController::class);
+
+Route::resource('materials', AdminMaterialController::class);
+
+Route::resource('students', AdminStudentController::class);
+
+Route::resource('quiz-results', AdminQuizResultController::class);
+
+Route::get(
+    'activities',
+    [ActivityLogController::class, 'index']
+)->name('activities.index');
+Route::get(
+    'notifications',
+    [ActivityLogController::class, 'notifications']
+)->name('notifications');
 
 });

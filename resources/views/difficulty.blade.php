@@ -346,12 +346,15 @@
         }
 
         .difficulty-description {
-            margin-top: 8px;
-            color: #77736d;
-            font-size: 11px;
-            line-height: 1.6;
-            min-height: 54px;
-        }
+    margin-top: 8px;
+    color: #77736d;
+    font-size: 11px;
+    line-height: 1.6;
+
+    height: 54px;
+    display: flex;
+    align-items: flex-start;
+}
 
         /* MATERIAL PROGRESS */
 

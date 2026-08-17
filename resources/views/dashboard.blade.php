@@ -1,9 +1,8 @@
-
-
-
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -15,6 +14,7 @@
     >
 
     <style>
+
         * {
             margin: 0;
             padding: 0;
@@ -41,8 +41,9 @@
             display: flex;
         }
 
+
         /* =========================
-           SIDEBAR
+           SIDEBAR DESKTOP
         ========================= */
 
         .sidebar {
@@ -201,6 +202,7 @@
             background: #fff0ee;
         }
 
+
         /* =========================
            MAIN
         ========================= */
@@ -216,6 +218,48 @@
             margin: 0 auto;
             padding: 28px 32px 50px;
         }
+
+
+        /* =========================
+           MOBILE HEADER
+        ========================= */
+
+        .mobile-header {
+            display: none;
+        }
+
+        .mobile-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .mobile-menu-button {
+            width: 42px;
+            height: 42px;
+            border: 1px solid #e2ddd5;
+            background: white;
+            border-radius: 9px;
+            color: #176c38;
+            font-size: 21px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mobile-menu-button:hover {
+            background: #f1f5ef;
+        }
+
+        .mobile-menu {
+            display: none;
+        }
+
+        .mobile-overlay {
+            display: none;
+        }
+
 
         /* =========================
            HERO
@@ -255,6 +299,7 @@
             max-width: 650px;
             color: #e8f5eb;
         }
+
 
         /* =========================
            STATISTIK
@@ -309,6 +354,7 @@
             color: #16863f;
         }
 
+
         /* =========================
            DASHBOARD GRID
         ========================= */
@@ -347,6 +393,7 @@
             color: #16863f;
             margin-right: 7px;
         }
+
 
         /* =========================
            LANJUTKAN BELAJAR
@@ -393,11 +440,16 @@
             font-weight: 600;
             cursor: pointer;
             white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .btn-green:hover {
             background: #126e34;
+            color: white;
         }
+
 
         /* =========================
            PROGRESS
@@ -439,6 +491,7 @@
             line-height: 1.6;
         }
 
+
         /* =========================
            TARGET
         ========================= */
@@ -477,6 +530,7 @@
             font-size: 10px;
             margin-top: 10px;
         }
+
 
         /* =========================
            HISTORY
@@ -572,15 +626,13 @@
             text-decoration: underline;
         }
 
+
         /* =========================
-           MOBILE
+           TABLET
         ========================= */
 
-        .mobile-header {
-            display: none;
-        }
-
         @media (max-width: 1000px) {
+
             .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -588,9 +640,19 @@
             .dashboard-grid {
                 grid-template-columns: 1fr;
             }
+
+            .content {
+                padding: 24px;
+            }
         }
 
+
+        /* =========================
+           MOBILE
+        ========================= */
+
         @media (max-width: 768px) {
+
             .sidebar {
                 display: none;
             }
@@ -606,37 +668,265 @@
                 align-items: center;
                 background: white;
                 border-bottom: 1px solid #e7e2da;
-                padding: 14px 18px;
+                padding: 12px 15px;
+                position: sticky;
+                top: 0;
+                z-index: 200;
             }
 
             .mobile-brand {
                 color: #16863f;
                 font-weight: 700;
+                font-size: 18px;
+            }
+
+            .mobile-actions {
+                display: flex;
+                align-items: center;
+                gap: 7px;
+            }
+
+            .mobile-menu {
+                position: fixed;
+                top: 0;
+                right: -290px;
+                width: min(280px, 85vw);
+                height: 100vh;
+                background: #fffdf9;
+                z-index: 300;
+                box-shadow: -4px 0 15px rgba(0,0,0,.12);
+                transition: right .25s ease;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .mobile-menu.active {
+                right: 0;
+            }
+
+            .mobile-menu-header {
+                padding: 20px;
+                border-bottom: 1px solid #e8e3da;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .mobile-menu-title {
+                color: #176c38;
+                font-size: 18px;
+                font-weight: 700;
+            }
+
+            .mobile-close {
+                border: none;
+                background: transparent;
+                font-size: 25px;
+                cursor: pointer;
+                color: #555;
+            }
+
+            .mobile-profile {
+                margin: 15px;
+                padding: 14px;
+                border: 1px solid #e6e0d7;
+                background: #f8f5ef;
+                border-radius: 12px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .mobile-profile .profile-name {
+                max-width: 170px;
+            }
+
+            .mobile-nav {
+                padding: 5px 12px;
+                overflow-y: auto;
+            }
+
+            .mobile-nav a {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                padding: 13px 12px;
+                margin-bottom: 4px;
+                border-radius: 9px;
+                color: #514f4a;
+                text-decoration: none;
+                font-size: 13px;
+            }
+
+            .mobile-nav a:hover {
+                background: #f1f5ef;
+                color: #16863f;
+            }
+
+            .mobile-logout {
+                margin-top: auto;
+                padding: 15px 12px 20px;
+                border-top: 1px solid #eee9e1;
+            }
+
+            .mobile-logout button {
+                width: 100%;
+                border: none;
+                background: transparent;
+                color: #c83c32;
+                padding: 13px 12px;
+                text-align: left;
+                border-radius: 9px;
+                font-size: 13px;
+                cursor: pointer;
+            }
+
+            .mobile-logout button:hover {
+                background: #fff0ee;
+            }
+
+            .mobile-overlay {
+                display: none;
+                position: fixed;
+                inset: 0;
+                background: rgba(0,0,0,.35);
+                z-index: 250;
+            }
+
+            .mobile-overlay.active {
+                display: block;
             }
 
             .content {
-                padding: 20px 15px 40px;
+                padding: 18px 14px 40px;
             }
 
             .hero {
-                padding: 25px;
+                padding: 24px 20px;
+                border-radius: 14px;
+                min-height: auto;
             }
 
             .hero h1 {
-                font-size: 23px;
+                font-size: 22px;
+            }
+
+            .hero p {
+                font-size: 12px;
             }
 
             .stats-grid {
                 grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+
+            .stat-card {
+                padding: 14px;
+                gap: 9px;
+            }
+
+            .stat-icon {
+                width: 36px;
+                height: 36px;
+                font-size: 16px;
+            }
+
+            .stat-label {
+                font-size: 9px;
+            }
+
+            .stat-value {
+                font-size: 16px;
+            }
+
+            .panel {
+                padding: 18px;
+                border-radius: 13px;
             }
 
             .continue-card {
                 align-items: flex-start;
                 flex-direction: column;
+                gap: 15px;
+            }
+
+            .continue-card .btn-green {
+                width: 100%;
+            }
+
+            .progress-header {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 6px;
             }
 
             .history-item {
                 grid-template-columns: 1fr 1fr;
+                gap: 12px;
+                padding: 14px 0;
+            }
+
+            .history-score {
+                text-align: left;
+            }
+
+            .history-value {
+                font-size: 10px;
+            }
+
+            .target-top {
+                font-size: 10px;
+            }
+        }
+
+
+        /* =========================
+           SMALL PHONE
+        ========================= */
+
+        @media (max-width: 480px) {
+
+            .mobile-brand {
+                font-size: 17px;
+            }
+
+            .mobile-menu-button {
+                width: 40px;
+                height: 40px;
+            }
+
+            .mobile-actions .btn-green {
+                padding: 10px 13px;
+                font-size: 11px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-card {
+                min-height: 70px;
+            }
+
+            .hero {
+                padding: 21px 18px;
+            }
+
+            .hero h1 {
+                font-size: 20px;
+            }
+
+            .hero p {
+                font-size: 11px;
+                line-height: 1.6;
+            }
+
+            .panel-title {
+                font-size: 14px;
+            }
+
+            .history-item {
+                grid-template-columns: 1fr;
             }
 
             .history-score {
@@ -644,31 +934,33 @@
             }
         }
 
-        @media (max-width: 480px) {
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-        }
     </style>
+
 </head>
+
 
 <body>
 
 <div class="app">
 
+
     {{-- =========================
-         SIDEBAR
+         SIDEBAR DESKTOP
     ========================== --}}
 
     <aside class="sidebar">
 
-        <a href="{{ route('dashboard') }}" class="brand">
+        <a
+            href="{{ route('dashboard') }}"
+            class="brand"
+        >
 
             <div class="brand-icon">
                 ▣
             </div>
 
             <div>
+
                 <div class="brand-title">
                     SuraSunda
                 </div>
@@ -676,9 +968,11 @@
                 <div class="brand-subtitle">
                     E-Learning Basa Sunda
                 </div>
+
             </div>
 
         </a>
+
 
         <div class="profile-box">
 
@@ -701,83 +995,91 @@
         </div>
 
 
-        {{-- =========================
-             MENU FINAL
-        ========================== --}}
-
         <nav class="nav-menu">
 
-    <a
-        href="{{ route('dashboard') }}"
-        class="nav-link active"
-    >
-        <span class="nav-icon">▦</span>
-        Dashboard
-    </a>
+            <a
+                href="{{ route('dashboard') }}"
+                class="nav-link active"
+            >
+                <span class="nav-icon">▦</span>
+                Dashboard
+            </a>
 
-    <a
-        href="{{ route('materi.index') }}"
-        class="nav-link"
-    >
-        <span class="nav-icon">▥</span>
-        Jalur Belajar
-    </a>
 
-    <a
-        href="{{ route('latihan') }}"
-        class="nav-link"
-    >
-        <span class="nav-icon">?</span>
-        Kuis & Latihan
-    </a>
+            <a
+                href="{{ route('materi.index') }}"
+                class="nav-link"
+            >
+                <span class="nav-icon">▥</span>
+                Jalur Belajar
+            </a>
 
-    <a
-        href="{{ route('riwayat') }}"
-        class="nav-link"
-    >
-        <span class="nav-icon">▤</span>
-        Riwayat Nilai
-    </a>
 
-    <a
-        href="{{ route('peringkat') }}"
-        class="nav-link"
-    >
-        <span class="nav-icon">♜</span>
-        Peringkat
-    </a>
+            <a
+                href="{{ route('latihan') }}"
+                class="nav-link"
+            >
+                <span class="nav-icon">?</span>
+                Kuis & Latihan
+            </a>
 
-    <a
-        href="{{ route('prestasi') }}"
-        class="nav-link"
-    >
-        <span class="nav-icon">♙</span>
-        Prestasi
-    </a>
 
-    <a
-        href="{{ route('profil') }}"
-        class="nav-link"
-    >
-        <span class="nav-icon">♧</span>
-        Profil Siswa
-    </a>
+            <a
+                href="{{ route('riwayat') }}"
+                class="nav-link"
+            >
+                <span class="nav-icon">▤</span>
+                Riwayat Nilai
+            </a>
 
-</nav>
+
+            <a
+                href="{{ route('peringkat') }}"
+                class="nav-link"
+            >
+                <span class="nav-icon">♜</span>
+                Peringkat
+            </a>
+
+
+            <a
+                href="{{ route('prestasi') }}"
+                class="nav-link"
+            >
+                <span class="nav-icon">♙</span>
+                Prestasi
+            </a>
+
+
+            <a
+                href="{{ route('profil') }}"
+                class="nav-link"
+            >
+                <span class="nav-icon">♧</span>
+                Profil Siswa
+            </a>
+
+        </nav>
+
+
         <div class="sidebar-bottom">
 
             <form
                 action="{{ route('logout') }}"
                 method="POST"
             >
+
                 @csrf
 
                 <button
                     type="submit"
                     class="logout-button"
                 >
+
                     <span>↪</span>
+
                     Keluar / Logout
+
                 </button>
 
             </form>
@@ -793,6 +1095,11 @@
 
     <main class="main">
 
+
+        {{-- =========================
+             MOBILE HEADER
+        ========================== --}}
+
         <div class="mobile-header">
 
             <a
@@ -802,17 +1109,166 @@
                 SuraSunda
             </a>
 
-            <a
-                href="{{ route('materi.index') }}"
-                class="btn-green"
-            >
-                Belajar
-            </a>
+
+            <div class="mobile-actions">
+
+                <a
+                    href="{{ route('materi.index') }}"
+                    class="btn-green"
+                >
+                    Belajar
+                </a>
+
+
+                <button
+                    type="button"
+                    class="mobile-menu-button"
+                    onclick="openMobileMenu()"
+                    aria-label="Buka menu"
+                >
+                    ☰
+                </button>
+
+            </div>
 
         </div>
 
 
+        {{-- =========================
+             MOBILE MENU
+        ========================== --}}
+
+        <div
+            class="mobile-overlay"
+            id="mobileOverlay"
+            onclick="closeMobileMenu()"
+        ></div>
+
+
+        <aside
+            class="mobile-menu"
+            id="mobileMenu"
+        >
+
+            <div class="mobile-menu-header">
+
+                <div class="mobile-menu-title">
+                    SuraSunda
+                </div>
+
+                <button
+                    type="button"
+                    class="mobile-close"
+                    onclick="closeMobileMenu()"
+                    aria-label="Tutup menu"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <div class="mobile-profile">
+
+                <div class="avatar">
+
+                    {{ strtoupper(substr(auth()->user()->name, 0, 1)) }}
+
+                </div>
+
+                <div>
+
+                    <div class="profile-name">
+
+                        {{ auth()->user()->name }}
+
+                    </div>
+
+                    <span class="profile-role">
+
+                        Siswa SuraSunda
+
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <nav class="mobile-nav">
+
+                <a href="{{ route('dashboard') }}">
+                    <span>▦</span>
+                    Dashboard
+                </a>
+
+
+                <a href="{{ route('materi.index') }}">
+                    <span>▥</span>
+                    Jalur Belajar
+                </a>
+
+
+                <a href="{{ route('latihan') }}">
+                    <span>?</span>
+                    Kuis & Latihan
+                </a>
+
+
+                <a href="{{ route('riwayat') }}">
+                    <span>▤</span>
+                    Riwayat Nilai
+                </a>
+
+
+                <a href="{{ route('peringkat') }}">
+                    <span>♜</span>
+                    Peringkat
+                </a>
+
+
+                <a href="{{ route('prestasi') }}">
+                    <span>♙</span>
+                    Prestasi
+                </a>
+
+
+                <a href="{{ route('profil') }}">
+                    <span>♧</span>
+                    Profil Siswa
+                </a>
+
+            </nav>
+
+
+            <div class="mobile-logout">
+
+                <form
+                    action="{{ route('logout') }}"
+                    method="POST"
+                >
+
+                    @csrf
+
+                    <button type="submit">
+
+                        ↪ &nbsp; Keluar / Logout
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </aside>
+
+
+        {{-- =========================
+             CONTENT
+        ========================== --}}
+
         <div class="content">
+
 
             {{-- HERO --}}
 
@@ -839,6 +1295,7 @@
 
             <section class="stats-grid">
 
+
                 <div class="stat-card">
 
                     <div class="stat-icon">
@@ -846,6 +1303,7 @@
                     </div>
 
                     <div>
+
                         <div class="stat-label">
                             Materi Selesai
                         </div>
@@ -853,6 +1311,7 @@
                         <div class="stat-value green">
                             {{ $materiSelesai }}/{{ $totalMateri }}
                         </div>
+
                     </div>
 
                 </div>
@@ -865,6 +1324,7 @@
                     </div>
 
                     <div>
+
                         <div class="stat-label">
                             Total Latihan
                         </div>
@@ -872,6 +1332,7 @@
                         <div class="stat-value">
                             {{ $totalLatihan }}
                         </div>
+
                     </div>
 
                 </div>
@@ -884,6 +1345,7 @@
                     </div>
 
                     <div>
+
                         <div class="stat-label">
                             Nilai Tertinggi
                         </div>
@@ -891,6 +1353,7 @@
                         <div class="stat-value green">
                             {{ $nilaiTertinggi }}/100
                         </div>
+
                     </div>
 
                 </div>
@@ -903,6 +1366,7 @@
                     </div>
 
                     <div>
+
                         <div class="stat-label">
                             Rata-rata Nilai
                         </div>
@@ -910,32 +1374,41 @@
                         <div class="stat-value green">
                             {{ $rataRata }}/100
                         </div>
+
                     </div>
 
                 </div>
 
+
             </section>
 
 
-            {{-- =========================
-                 DASHBOARD GRID
-            ========================== --}}
+            {{-- DASHBOARD GRID --}}
 
             <div class="dashboard-grid">
+
 
                 {{-- KIRI --}}
 
                 <div>
+
 
                     {{-- LANJUTKAN BELAJAR --}}
 
                     <section class="panel">
 
                         <div class="panel-title">
+
                             <div>
-                                <span class="panel-title-icon">✣</span>
+
+                                <span class="panel-title-icon">
+                                    ✣
+                                </span>
+
                                 Lanjutkan Belajar
+
                             </div>
+
                         </div>
 
 
@@ -1021,8 +1494,10 @@
                             </div>
 
                             <div class="progress-number">
+
                                 {{ $materiSelesai }}/{{ $totalMateri }}
                                 Materi ({{ $persentaseMateri }}%)
+
                             </div>
 
                         </div>
@@ -1065,8 +1540,13 @@
                         <div class="panel-title">
 
                             <div>
-                                <span class="panel-title-icon">▤</span>
+
+                                <span class="panel-title-icon">
+                                    ▤
+                                </span>
+
                                 Riwayat Nilai
+
                             </div>
 
                             <a
@@ -1143,11 +1623,13 @@
                                             ? 'score-pass'
                                             : 'score-fail' }}"
                                     >
+
                                         {{ $result->score }}
 
                                         <small>
                                             /100
                                         </small>
+
                                     </div>
 
                                 </div>
@@ -1155,9 +1637,11 @@
                             @empty
 
                                 <div class="empty-state">
+
                                     Belum ada riwayat latihan.
                                     Selesaikan latihan pertamamu untuk
                                     melihat nilai di sini.
+
                                 </div>
 
                             @endforelse
@@ -1173,19 +1657,28 @@
 
                 <div>
 
+
                     {{-- TARGET BELAJAR --}}
 
                     <section class="panel">
 
                         <div class="panel-title">
+
                             <div>
-                                <span style="color:#d58a00;">◎</span>
+
+                                <span style="color:#d58a00;">
+                                    ◎
+                                </span>
+
                                 Target Belajar
+
                             </div>
+
                         </div>
 
 
                         @php
+
                             $targetMateri = $totalMateri > 0
                                 ? $totalMateri
                                 : 1;
@@ -1196,6 +1689,7 @@
                                     ($materiSelesai / $targetMateri) * 100
                                 )
                             );
+
                         @endphp
 
 
@@ -1250,10 +1744,17 @@
                     <section class="panel">
 
                         <div class="panel-title">
+
                             <div>
-                                <span style="color:#7c3aed;">♙</span>
+
+                                <span style="color:#7c3aed;">
+                                    ♙
+                                </span>
+
                                 Status Belajar
+
                             </div>
+
                         </div>
 
 
@@ -1308,5 +1809,66 @@
 
 </div>
 
+
+<script>
+
+    function openMobileMenu() {
+
+        document
+            .getElementById('mobileMenu')
+            .classList.add('active');
+
+        document
+            .getElementById('mobileOverlay')
+            .classList.add('active');
+
+        document.body.style.overflow = 'hidden';
+    }
+
+
+    function closeMobileMenu() {
+
+        document
+            .getElementById('mobileMenu')
+            .classList.remove('active');
+
+        document
+            .getElementById('mobileOverlay')
+            .classList.remove('active');
+
+        document.body.style.overflow = '';
+    }
+
+
+    // Tutup menu jika tombol Escape ditekan
+
+    document.addEventListener('keydown', function(event) {
+
+        if (event.key === 'Escape') {
+
+            closeMobileMenu();
+
+        }
+
+    });
+
+
+    // Jika ukuran layar kembali ke desktop,
+    // pastikan menu mobile ditutup.
+
+    window.addEventListener('resize', function() {
+
+        if (window.innerWidth > 768) {
+
+            closeMobileMenu();
+
+        }
+
+    });
+
+</script>
+
+
 </body>
+
 </html>

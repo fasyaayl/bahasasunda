@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Material;
 use App\Models\MaterialProgress;
 use Illuminate\Support\Facades\Auth;
+use App\Services\ActivityService;
 
 class MaterialController extends Controller
 {
@@ -162,31 +163,39 @@ class MaterialController extends Controller
      * Menampilkan detail satu materi.
      */
     public function show(Material $material)
-    {
-        /*
-        |--------------------------------------------------------------------------
-        | CEK STATUS MATERI USER
-        |--------------------------------------------------------------------------
-        */
+{
+    // Catat aktivitas siswa membuka materi
+    ActivityService::log(
+        Auth::id(),
+        'material_open',
+        'Membuka materi: ' . $material->title,
+        request()->ip()
+    );
 
-        $isCompleted = MaterialProgress::where(
-            'user_id',
-            Auth::id()
-        )
-        ->where('material_id', $material->id)
-        ->whereNotNull('completed_at')
-        ->exists();
+    /*
+    |--------------------------------------------------------------------------
+    | CEK STATUS MATERI USER
+    |--------------------------------------------------------------------------
+    */
 
+    $isCompleted = MaterialProgress::where(
+        'user_id',
+        Auth::id()
+    )
+    ->where('material_id', $material->id)
+    ->whereNotNull('completed_at')
+    ->exists();
 
-        /*
-        |--------------------------------------------------------------------------
-        | TAMPILKAN DETAIL
-        |--------------------------------------------------------------------------
-        */
+    /*
+    |--------------------------------------------------------------------------
+    | TAMPILKAN DETAIL
+    |--------------------------------------------------------------------------
+    */
 
-        return view('materials.show', [
-            'material' => $material,
-            'isCompleted' => $isCompleted,
-        ]);
-    }
+   return view('materials.show', [
+    'material' => $material,
+    'isCompleted' => $isCompleted,
+]);
+}
+
 }

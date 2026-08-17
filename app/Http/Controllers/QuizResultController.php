@@ -6,6 +6,7 @@ use App\Models\Question;
 use App\Models\QuizResult;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Services\ActivityService;
 
 class QuizResultController extends Controller
 {
@@ -34,6 +35,12 @@ class QuizResultController extends Controller
                 ->route('login')
                 ->with('error', 'Silakan login terlebih dahulu.');
         }
+        ActivityService::log(
+    $userId,
+    'quiz_start',
+    'Memulai quiz ' . ucfirst($difficulty),
+    request()->ip()
+);
 
         $passingScore = 70;
 
@@ -149,6 +156,15 @@ class QuizResultController extends Controller
             'wrong' => $wrong,
             'total' => $total,
         ]);
+        ActivityService::log(
+    $userId,
+    'quiz_finish',
+    'Menyelesaikan quiz ' . ucfirst($difficulty) .
+    ' | Nilai: ' . $score .
+    ' | Benar: ' . $correct .
+    ' | Salah: ' . $wrong,
+    request()->ip()
+);
 
         /*
         |--------------------------------------------------------------------------

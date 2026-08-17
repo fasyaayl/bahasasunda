@@ -6,6 +6,7 @@ use App\Models\Material;
 use App\Models\MaterialProgress;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Services\ActivityService;
 
 class MaterialProgressController extends Controller
 {
@@ -26,14 +27,10 @@ class MaterialProgressController extends Controller
             ->where('material_id', $material->id)
             ->first();
 
-
         /*
         |--------------------------------------------------------------------------
         | JIKA SUDAH SELESAI
         |--------------------------------------------------------------------------
-        |
-        | Jangan ubah completed_at lagi.
-        |
         */
 
         if ($progress && $progress->completed_at !== null) {
@@ -45,7 +42,6 @@ class MaterialProgressController extends Controller
                     'Materi ini sudah pernah kamu selesaikan.'
                 );
         }
-
 
         /*
         |--------------------------------------------------------------------------
@@ -63,10 +59,22 @@ class MaterialProgressController extends Controller
             ]
         );
 
+        /*
+        |--------------------------------------------------------------------------
+        | CATAT AKTIVITAS SISWA
+        |--------------------------------------------------------------------------
+        */
+
+        ActivityService::log(
+            Auth::id(),
+            'material_finish',
+            'Menyelesaikan materi: ' . $material->title,
+            $request->ip()
+        );
 
         /*
         |--------------------------------------------------------------------------
-        | KEMBALI KE DETAIL MATERI
+        | KEMBALI KE DETAIL
         |--------------------------------------------------------------------------
         */
 
