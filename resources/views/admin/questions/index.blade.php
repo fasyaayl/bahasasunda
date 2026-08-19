@@ -7,13 +7,10 @@
 @section('content')
 
 @if(session('success'))
-
 <div class="alert alert-success">
     {{ session('success') }}
 </div>
-
 @endif
-
 
 <div class="card card-dashboard">
 
@@ -23,7 +20,6 @@
             Daftar Soal Quiz
         </h5>
 
-
         <a
             href="{{ route('admin.questions.create') }}"
             class="btn-admin btn-admin-primary"
@@ -32,7 +28,6 @@
         </a>
 
     </div>
-
 
     <div class="card-body">
 
@@ -68,7 +63,6 @@
 
                 </thead>
 
-
                 <tbody>
 
                 @forelse($questions as $question)
@@ -78,7 +72,6 @@
                         <td>
                             {{ $question->id }}
                         </td>
-
 
                         <td>
 
@@ -104,13 +97,9 @@
 
                         </td>
 
-
                         <td class="question-cell">
-
                             {{ $question->question }}
-
                         </td>
-
 
                         <td>
 
@@ -119,7 +108,6 @@
                             </strong>
 
                         </td>
-
 
                         <td>
 
@@ -132,7 +120,6 @@
                                     Edit
                                 </a>
 
-
                                 <form
                                     action="{{ route('admin.questions.destroy', $question) }}"
                                     method="POST"
@@ -140,14 +127,11 @@
                                 >
 
                                     @csrf
-
                                     @method('DELETE')
-
 
                                     <button
                                         type="submit"
                                         class="btn-admin btn-admin-danger"
-                                        onclick="return confirm('Apakah Anda yakin ingin menghapus soal ini?')"
                                     >
                                         Hapus
                                     </button>
@@ -159,7 +143,6 @@
                         </td>
 
                     </tr>
-
 
                 @empty
 
@@ -185,7 +168,6 @@
     </div>
 
 </div>
-
 
 <style>
 
@@ -259,24 +241,16 @@
         padding: 10px;
     }
 
-
-    /*
-       Tabel dapat digeser horizontal
-       jika layar HP tidak cukup.
-    */
-
     .table-responsive {
         width: 100%;
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
     }
 
-
     .table {
         min-width: 750px;
         font-size: 12px;
     }
-
 
     .table th,
     .table td {
@@ -284,21 +258,16 @@
         white-space: nowrap;
     }
 
-
     .question-cell {
         min-width: 350px;
         max-width: 450px;
-
         white-space: normal !important;
-
         line-height: 1.5;
     }
-
 
     .admin-action-buttons {
         flex-wrap: nowrap;
     }
-
 
     .btn-admin {
         white-space: nowrap;
