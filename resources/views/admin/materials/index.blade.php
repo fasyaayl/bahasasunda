@@ -7,13 +7,10 @@
 @section('content')
 
 @if(session('success'))
-
 <div class="alert alert-success">
     {{ session('success') }}
 </div>
-
 @endif
-
 
 <div class="card card-dashboard">
 
@@ -22,7 +19,6 @@
         <h5 class="mb-0">
             Daftar Materi
         </h5>
-
 
         <a
             href="{{ route('admin.materials.create') }}"
@@ -33,11 +29,9 @@
 
     </div>
 
-
     <div class="card-body">
 
         {{-- TABLE WRAPPER RESPONSIVE --}}
-
         <div class="table-responsive">
 
             <table class="table table-bordered table-hover align-middle mb-0">
@@ -45,7 +39,6 @@
                 <thead class="table-success">
 
                     <tr>
-
                         <th width="60">
                             ID
                         </th>
@@ -65,11 +58,9 @@
                         <th width="180">
                             Aksi
                         </th>
-
                     </tr>
 
                 </thead>
-
 
                 <tbody>
 
@@ -81,13 +72,11 @@
                             {{ $material->id }}
                         </td>
 
-
                         <td>
                             <strong>
                                 {{ $material->title }}
                             </strong>
                         </td>
-
 
                         <td>
 
@@ -113,11 +102,9 @@
 
                         </td>
 
-
                         <td>
                             {{ $material->order }}
                         </td>
-
 
                         <td>
 
@@ -130,7 +117,6 @@
                                     Edit
                                 </a>
 
-
                                 <form
                                     action="{{ route('admin.materials.destroy', $material) }}"
                                     method="POST"
@@ -138,14 +124,11 @@
                                 >
 
                                     @csrf
-
                                     @method('DELETE')
-
 
                                     <button
                                         type="submit"
                                         class="btn-admin btn-admin-danger"
-                                        onclick="return confirm('Apakah Anda yakin ingin menghapus materi ini?')"
                                     >
                                         Hapus
                                     </button>
@@ -157,7 +140,6 @@
                         </td>
 
                     </tr>
-
 
                     @empty
 
@@ -184,7 +166,6 @@
 
 </div>
 
-
 <style>
 
 .admin-action-buttons {
@@ -198,7 +179,6 @@
     display: inline-block;
     margin: 0;
 }
-
 
 /* =========================
    TABLET
@@ -215,7 +195,6 @@
     }
 
 }
-
 
 /* =========================
    MOBILE
